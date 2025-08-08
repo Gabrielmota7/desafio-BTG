@@ -27,12 +27,8 @@ class PedidoController(
     @GetMapping("/{id}")
     fun buscarPedido(@PathVariable id: UUID ): ResponseEntity<Pedido> {
         val pedido = pedidoService.buscarPedido(id)
-        return if (pedido != null) {
-            ResponseEntity.ok(pedido)
-        } else {
-            ResponseEntity.notFound().build()
+        return if (pedido != null) ResponseEntity.ok(pedido)
+        else ResponseEntity.notFound().build()
         }
 
     }
-
-}

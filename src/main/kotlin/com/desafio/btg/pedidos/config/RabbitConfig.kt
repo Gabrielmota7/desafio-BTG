@@ -10,7 +10,7 @@ class RabbitConfig {
     companion object {
         const val QUEUE_NAME = "fila-pedidos"
         const val EXCHANGE_NAME = "pedidos-exchange"
-        const val ROUNTIG_KEY = "pedidos.novos"
+        const val ROUTING_KEY = "pedidos.novos"
     }
 
     @Bean
@@ -21,5 +21,5 @@ class RabbitConfig {
 
     @Bean
     fun binding(queue: Queue, exchange: TopicExchange): Binding =
-            BindingBuilder.bind(queue).to(exchange).with(ROUNTIG_KEY)
+            BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY)
 }

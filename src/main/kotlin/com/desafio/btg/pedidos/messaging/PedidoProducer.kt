@@ -13,7 +13,7 @@ class PedidoProducer(
     fun enviarPedidoParaFila(pedidoId: UUID) {
         rabbitTemplate.convertAndSend(
                 RabbitConfig.EXCHANGE_NAME,
-                RabbitConfig.ROUNTIG_KEY,
+                RabbitConfig.ROUTING_KEY,
                 pedidoId.toString()
         )
     }
