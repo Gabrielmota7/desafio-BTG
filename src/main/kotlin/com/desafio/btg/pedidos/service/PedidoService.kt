@@ -1,5 +1,6 @@
 package com.desafio.btg.pedidos.service
 
+import com.desafio.btg.pedidos.messaging.PedidoProducer
 import com.desafio.btg.pedidos.model.NovoPedidoDTO
 import com.desafio.btg.pedidos.model.Pedido
 import com.desafio.btg.pedidos.repository.PedidoRepository
@@ -8,7 +9,8 @@ import java.util.UUID
 
 @Service
 class PedidoService (
-        private val pedidoRepository: PedidoRepository
+        private val pedidoRepository: PedidoRepository,
+        private val pedidoProducer: PedidoProducer
 ) {
 
     fun criarPedido(dto: NovoPedidoDTO): Pedido {
@@ -18,6 +20,7 @@ class PedidoService (
                 itens = dto.itens
                 )
         pedidoRepository.salvar(pedido)
+        pedidoProducer.enviarPedidoParaFila(pedido.id)
         return pedido
     }
 
