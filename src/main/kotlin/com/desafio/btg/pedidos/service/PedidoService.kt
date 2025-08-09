@@ -1,5 +1,6 @@
 package com.desafio.btg.pedidos.service
 
+import com.desafio.btg.pedidos.exceptions.PedidoNaoEncontradoException
 import com.desafio.btg.pedidos.messaging.PedidoProducer
 import com.desafio.btg.pedidos.model.NovoPedidoDTO
 import com.desafio.btg.pedidos.model.Pedido
@@ -26,6 +27,7 @@ class PedidoService (
 
     fun buscarPedido(id: UUID): Pedido? {
         return pedidoRepository.buscarPorId(id)
+                ?: throw PedidoNaoEncontradoException(id)
     }
 
     fun marcarProcessado(id: UUID) {
