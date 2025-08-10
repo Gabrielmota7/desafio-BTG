@@ -76,4 +76,14 @@ class RestExceptionHandler {
         )
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body)
     }
+
+    @ExceptionHandler(PedidoNaoEncontradoException::class)
+    fun handlePedidoNaoEncontrado(ex: PedidoNaoEncontradoException): ResponseEntity<ErrorResponse> {
+        val body = ErrorResponse(
+                status = HttpStatus.NOT_FOUND.value(),
+                error = HttpStatus.NOT_FOUND.reasonPhrase,
+                message = MensagensErro.RECURSO_NAO_ENCONTRADO
+        )
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body)
+    }
 }
