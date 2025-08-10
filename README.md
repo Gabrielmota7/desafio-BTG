@@ -40,13 +40,15 @@ docker-compose up -d
 
 ### 2. Rodar projeto
 ```
-Rodar projeto, pedidosApplication.kt
+./mvnw spring-boot:run
 ```
 ### Endpoints
 
 #### POST /pedidos
 
 Content-Type: application/json
+
+Request:
 
 ```
 {
