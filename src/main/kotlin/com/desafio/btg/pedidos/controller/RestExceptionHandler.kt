@@ -61,11 +61,10 @@ class RestExceptionHandler {
         val cause = ex.cause
         val details = when (cause) {
             is MissingKotlinParameterException -> {
-                // Tenta identificar o campo faltante; fallback para "body inválido"
                 val field = cause.path.lastOrNull()?.fieldName ?: "body"
-                mapOf(field to MensagensErro.CAMPO_OBRIGATORIO_AUSENTE) // crie essa constante
+                mapOf(field to MensagensErro.CAMPO_OBRIGATORIO_AUSENTE)
             }
-            else -> mapOf("body" to MensagensErro.BODY_INVALIDO) // crie essa constante também
+            else -> mapOf("body" to MensagensErro.BODY_INVALIDO)
         }
 
         val body = ErrorResponse(
