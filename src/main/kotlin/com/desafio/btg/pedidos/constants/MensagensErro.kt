@@ -2,7 +2,7 @@ package com.desafio.btg.pedidos.constants
 
 object MensagensErro {
 
-    const val CLIENT_ID_OBRIGATORIO = "clienteId é obrigatório"
+    const val CLIENTE_ID_OBRIGATORIO = "clienteId é obrigatório"
     const val ITENS_NAO_PODE_SER_NULO = "itens não pode ser nulo"
     const val ITENS_VAZIO = "itens não pode ser vazio"
     const val ITEM_VAZIO = "item não pode ser vazio"

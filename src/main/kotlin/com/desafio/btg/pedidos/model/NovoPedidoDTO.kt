@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull
 
 
 data class NovoPedidoDTO(
-        @field:NotBlank(message = MensagensErro.CLIENT_ID_OBRIGATORIO)
+        @field:NotBlank(message = MensagensErro.CLIENTE_ID_OBRIGATORIO)
         val clienteId: String,
 
         @field:NotNull(message = MensagensErro.ITENS_NAO_PODE_SER_NULO)
