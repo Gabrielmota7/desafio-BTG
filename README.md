@@ -7,7 +7,7 @@ Após a criação, o pedido é enviado para uma fila e processado assincronament
 ---
 
 ##  Tecnologias
-- **Kotlin + Spring Boot 3**
+- **Kotlin 1.9 + Spring Boot 3**
 - **RabbitMQ** (mensageria)
 - **Jakarta Validation** (validações)
 - **JUnit + MockMvc + Mockito** (testes)
@@ -25,7 +25,7 @@ Producer → RabbitMQ → Consumer → Atualiza status
 
 - **Controller**: recebe requisições HTTP, valida entrada e retorna respostas padronizadas.
 - **Service**: lógica de negócio (criar pedido, buscar, processar).
-- **Repository**: armazenamento em memória (mock).
+- **Repository**: armazenamento em memória.
 - **Producer**: envia ID do pedido para fila no RabbitMQ.
 - **Consumer**: consome ID da fila e marca o pedido como `PROCESSADO`.
 
